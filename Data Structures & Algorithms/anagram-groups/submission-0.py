@@ -1,8 +1,12 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        ans = {}
+        # iterate thru, sorted is key, val is array
+        hasht = {}
         for s in strs:
-            key = "".join(sorted(s))
-            ans.setdefault(key, []).append(s)
-        return list(ans.values())
-            
+            k = "".join(sorted(s))
+            if k in hasht:
+                hasht[k].append(s)
+            else:
+                hasht[k] = [s]
+        
+        return list(hasht.values())

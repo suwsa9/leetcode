@@ -1,13 +1,10 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        nhash = {}
+        hasht = {}
         for i in range(len(nums)):
-            curr = nums[i]
-            val = target - nums[i]
-            if val in nhash:
-                return [nhash.get(val), i]
-            nhash[nums[i]] = i
-
-
-
-        
+            want = target - nums[i]
+            if want in hasht:
+                return list(sorted([i, hasht[want]]))
+            else:
+                hasht[nums[i]] = i
+            
